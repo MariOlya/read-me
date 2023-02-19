@@ -1,10 +1,32 @@
-# Symfony Docker
+<p align="center">
+    <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ad42f8e8-abba-47cd-9064-989e9cd73237/Fotoram.io.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230219%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230219T115651Z&X-Amz-Expires=86400&X-Amz-Signature=700e83f2a007f97ab34524215dfae51b14650af263e9d9d9992b671e19772a64&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Fotoram.io.png%22&x-id=GetObject"
+        width=172
+        height=32 alt="readme"
+    >
+    <h1 align="center">readme: blog as it should be</h1>
+    <h3 align="center">study project by Olga Marinina</h3>
+</p>
 
-A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony](https://symfony.com) web framework, with full [HTTP/2](https://symfony.com/doc/current/weblink.html), HTTP/3 and HTTPS support.
+<p align="center">
+<img src="https://img.shields.io/badge/php-%5E8.2.0-blue">
+<img src="https://img.shields.io/badge/PostgreSQL-15--alpine-blue">
+<img src="https://img.shields.io/badge/Symfony-%5E6.2-lightgrey">
 
-![CI](https://github.com/dunglas/symfony-docker/workflows/CI/badge.svg)
+[//]: # (<img src="https://img.shields.io/badge/sphinx-latest-blue">)
+[//]: # (<img src="https://img.shields.io/badge/phpunit-~9.5.0-blue">)
+[//]: # (<img src="https://img.shields.io/badge/redis-5-red">)
+</p>
+<br>
+
+The service gives users the opportunity to publish posts on their blog. The main feature of the service is the post format. When publishing, the user selects one of the five available post formats. This posting format is a cross between microblogging and full-blown, large blog posts.
+
+Depending on the selected format, the user's post is formatted in a special way.
+
+>The basis html, css, js were provided by online school 'HTML Academy', you can see their technical task in TODO.md (but only RU).
 
 ## Getting Started
+
+Since I'm using [complete docker environment](https://github.com/dunglas/symfony-docker) by [Kévin Dunglas](https://dunglas.fr) here you should follow the recommendation to install:
 
 1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/) (v2.10+)
 2. Run `docker compose build --pull --no-cache` to build fresh images
@@ -12,35 +34,12 @@ A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony
 4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
 5. Run `docker compose down --remove-orphans` to stop the Docker containers.
 
-## Features
+To add all our composer dependencies, run `docker-compose run --rm php composer install`.
 
-* Production, development and CI ready
-* [Installation of extra Docker Compose services](docs/extra-services.md) with Symfony Flex
-* Automatic HTTPS (in dev and in prod!)
-* HTTP/2, HTTP/3 and [Preload](https://symfony.com/doc/current/web_link.html) support
-* Built-in [Mercure](https://symfony.com/doc/current/mercure.html) hub
-* [Vulcain](https://vulcain.rocks) support
-* Native [XDebug](docs/xdebug.md) integration
-* Just 2 services (PHP FPM and Caddy server)
-* Super-readable configuration
+### Migrations
 
-**Enjoy!**
+Just run `docker-compose run --rm php bin/console doctrine:migrations:migrate`.
 
-## Docs
+### Fixtures
 
-1. [Build options](docs/build.md)
-2. [Using Symfony Docker with an existing project](docs/existing-project.md)
-3. [Support for extra services](docs/extra-services.md)
-4. [Deploying in production](docs/production.md)
-5. [Debugging with Xdebug](docs/xdebug.md)
-6. [TLS Certificates](docs/tls.md)
-7. [Using a Makefile](docs/makefile.md)
-8. [Troubleshooting](docs/troubleshooting.md)
-
-## License
-
-Symfony Docker is available under the MIT License.
-
-## Credits
-
-Created by [Kévin Dunglas](https://dunglas.fr), co-maintained by [Maxime Helias](https://twitter.com/maxhelias) and sponsored by [Les-Tilleuls.coop](https://les-tilleuls.coop).
+To add our prepared fake data, please, run `docker-compose run --rm php bin/console doctrine:fixtures:load`.
