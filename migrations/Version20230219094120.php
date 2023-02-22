@@ -36,7 +36,6 @@ final class Version20230219094120 extends AbstractMigration
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SCHEMA public');
         $this->addSql('DROP SEQUENCE post_to_hashtag_id_seq CASCADE');
         $this->addSql('ALTER TABLE post_hashtag DROP CONSTRAINT FK_675D9D524B89032C');
         $this->addSql('ALTER TABLE post_hashtag DROP CONSTRAINT FK_675D9D52FB34EF56');
