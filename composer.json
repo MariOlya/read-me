@@ -19,6 +19,8 @@
         "symfony/flex": "^2",
         "symfony/form": "6.2.*",
         "symfony/framework-bundle": "6.2.*",
+        "symfony/password-hasher": "6.2.*",
+        "symfony/property-access": "6.2.*",
         "symfony/runtime": "6.2.*",
         "symfony/twig-bundle": "6.2.*",
         "symfony/validator": "6.2.*",
@@ -67,13 +69,14 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": true,
             "require": "6.2.*",
             "docker": true
         }
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "squizlabs/php_codesniffer": "*",
         "symfony/maker-bundle": "^1.48"
     }
 }
