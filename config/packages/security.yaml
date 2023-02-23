@@ -1,0 +1,13 @@
+security:
+    # ...
+    firewalls:
+        main:
+        
+    password_hashers:
+        # авто-хешировщик с опциями по умолчанию для класса User (и его дочерей)
+        App\Entity\User: 'auto'
+
+        # авто-хешировщик с пользовательскими опциями для всех экземпляров PasswordAuthenticatedUserInterface
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+            algorithm: 'auto'
+            cost:      15
