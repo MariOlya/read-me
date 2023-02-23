@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/ad42f8e8-abba-47cd-9064-989e9cd73237/Fotoram.io.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230219%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230219T115651Z&X-Amz-Expires=86400&X-Amz-Signature=700e83f2a007f97ab34524215dfae51b14650af263e9d9d9992b671e19772a64&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Fotoram.io.png%22&x-id=GetObject"
+    <img src="public/web/img/Fotoram.io.png"
         width=172
         height=32 alt="readme"
     >
