@@ -1,0 +1,126 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Readme: Sign Up{% endblock %}
+
+{% block main %}
+
+    <main class="page__main page__main--registration">
+        <div class="container">
+            <h1 class="page__title page__title--registration">Sign Up</h1>
+        </div>
+        <section class="registration container">
+            <h2 class="visually-hidden">Sign Up</h2>
+
+            {{ form_start(form, { 'attr': {
+                'class': 'registration__form form',
+                'multipart': true,
+                'novalidate': true
+            }}) }}
+            <div class="form__text-inputs-wrapper">
+                <div class="form__text-inputs">
+                    <div class="registration__input-wrapper form__input-wrapper">
+                        <label class="registration__label form__label" for="registration-email">{{ form_label(form.email) }} <span class="form__input-required">*</span></label>
+                        <div class="form__input-section">
+                            {{ form_widget(form.email, { 'attr': {
+                                'class': 'registration__input form__input',
+                                'id': 'registration-email',
+                            }}) }}
+                            {% if form_errors(form.email) %}
+                            <button class="form__error-button button" type="button" style="display:inline-block">!<span class="visually-hidden">Error info</span></button>
+                            <div class="form__error-text">
+                                <h3 class="form__error-title">Please, fix this error</h3>
+                                <p class="form__error-desc">
+                                    {{ form.email.vars.errors }}
+                                </p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="registration__input-wrapper form__input-wrapper">
+                        <label class="registration__label form__label" for="registration-login">{{ form_label(form.login) }} <span class="form__input-required">*</span></label>
+                        <div class="form__input-section">
+                            {{ form_widget(form.login, { 'attr': {
+                                'class': 'registration__input form__input',
+                                'id': 'registration-login',
+                            }}) }}
+                            {% if form_errors(form.login) %}
+                            <button class="form__error-button button" type="button" style="display:inline-block">!<span class="visually-hidden">Error info</span></button>
+                            <div class="form__error-text">
+                                <h3 class="form__error-title">Please, fix this error</h3>
+                                <p class="form__error-desc">
+                                    {{ form.login.vars.errors }}
+                                </p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% for passwordField in form.password %}
+                    <div class="registration__input-wrapper form__input-wrapper">
+                        <label class="registration__label form__label" for="registration-password">{{ form_label(passwordField) }} <span class="form__input-required">*</span></label>
+                        <div class="form__input-section">
+                            {{ form_widget(passwordField, { 'attr': {
+                                'class': 'registration__input form__input',
+                                'id': 'registration-password',
+                            }}) }}
+                            {% if form_errors(passwordField) %}
+                            <button class="form__error-button button" type="button" style="display:inline-block">!<span class="visually-hidden">Error info</span></button>
+                            <div class="form__error-text">
+                                <h3 class="form__error-title">Please, fix this error</h3>
+                                <p class="form__error-desc">
+                                    {{ passwordField.vars.errors }}
+                                </p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% if not form.vars.valid %}
+                <div class="form__invalid-block">
+                    <b class="form__invalid-slogan">Please, fix following errors:</b>
+                    <ul class="form__invalid-list">
+                        {% for child in form.children %}
+                            {% for error in child.vars.errors %}
+                            <li class="form__invalid-item">{{ child.vars.label ~ ': ' ~ error.message }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for passwordField in form.password %}
+                            {% for error in passwordField.vars.errors %}
+                            <li class="form__invalid-item">{{ passwordField.vars.label ~ ': ' ~ error.message }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="registration__input-file-container form__input-container form__input-container--file">
+                <div class="registration__input-file-wrapper form__input-file-wrapper">
+                    <div class="registration__file-zone form__file-zone dropzone">
+                        {{ form_widget(form.avatarId, { 'attr': {
+                            'class': 'registration__input-file form__input-file',
+                            'id': 'userpic-file',
+                        }}) }}
+                        <div class="form__file-zone-text">
+                            <span>Drag photo here</span>
+                        </div>
+                    </div>
+                    <button class="registration__input-file-button form__input-file-button button" type="button">
+                        <span>Choose photo</span>
+                        <svg class="registration__attach-icon form__attach-icon" width="10" height="20">
+                            <use xlink:href="#icon-attach"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="registration__file form__file dropzone-previews">
+
+                </div>
+            </div>
+
+            <button class="registration__submit button button--main" type="submit">Submit</button>
+
+            {{ form_end(form) }}
+            
+        </section>
+    </main>
+{% endblock %}

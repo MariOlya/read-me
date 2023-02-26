@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <header class="header">
+        <div class="header__wrapper container">
+            <div class="header__logo-wrapper">
+                <a class="header__logo-link" href="{{ path('site') }}">
+                    <img class="header__logo" src="{{ asset('web/img/logo.svg') }}" alt="logo readme" width="128" height="24">
+                </a>
+                <p class="header__topic">
+                    micro blogging
+                </p>
+            </div>
+            <form class="header__search-form form" action="#" method="get">
+                <div class="header__search">
+                    <label class="visually-hidden">Search</label>
+                    <input class="header__search-input form__input" type="search">
+                    <button class="header__search-button button" type="submit">
+                        <svg class="header__search-icon" width="18" height="18">
+                            <use xlink:href="#icon-search"></use>
+                        </svg>
+                        <span class="visually-hidden">Start search</span>
+                    </button>
+                </div>
+            </form>
+            <div class="header__nav-wrapper">
+                <nav class="header__nav">
+                    <ul class="header__my-nav">
+                        <li class="header__my-page header__my-page--popular">
+                            <a class="header__page-link" href="popular.html" title="Popular">
+                                <span class="visually-hidden">Popular</span>
+                            </a>
+                        </li>
+                        <li class="header__my-page header__my-page--feed">
+                            <a class="header__page-link" href="feed.html" title="Feed">
+                                <span class="visually-hidden">Feed</span>
+                            </a>
+                        </li>
+                        <li class="header__my-page header__my-page--messages">
+                            <a class="header__page-link" href="messages.html" title="Messages">
+                                <span class="visually-hidden">Messages</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="header__user-nav">
+                        <li class="header__authorization">
+                            <a class="header__user-button header__authorization-button button" href="login.html">Login</a>
+                        </li>
+                        <li>
+                            <a class="header__user-button header__user-button--active header__register-button button">Sign Up</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    {% block main %}{% endblock %}
+
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <div class="footer__container container">
+                <div class="footer__site-info">
+                    <div class="footer__site-nav">
+                        <ul class="footer__info-pages">
+                            <li class="footer__info-page">
+                                <a class="footer__page-link" href="#">About project</a>
+                            </li>
+                            <li class="footer__info-page">
+                                <a class="footer__page-link" href="#">Advertising</a>
+                            </li>
+                            <li class="footer__info-page">
+                                <a class="footer__page-link" href="#">About developers</a>
+                            </li>
+                            <li class="footer__info-page">
+                                <a class="footer__page-link" href="#">Work at Readme</a>
+                            </li>
+                            <li class="footer__info-page">
+                                <a class="footer__page-link" href="#">User Agreement</a>
+                            </li>
+                            <li class="footer__info-page">
+                                <a class="footer__page-link" href="#">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="footer__license">
+                        When using any materials from the site, it is obligatory to specify Readme as a source. All copyright and exclusive rights within the project are protected in accordance with the local legal acts.
+                    </p>
+                </div>
+                <div class="footer__my-info">
+                    <ul class="footer__my-pages">
+                        <li class="footer__my-page footer__my-page--feed">
+                            <a class="footer__page-link" href="feed.html">Feed</a>
+                        </li>
+                        <li class="footer__my-page footer__my-page--popular">
+                            <a class="footer__page-link" href="popular.html">Popular</a>
+                        </li>
+                        <li class="footer__my-page footer__my-page--messages">
+                            <a class="footer__page-link" href="messages.html">Messages</a>
+                        </li>
+                    </ul>
+                    <div class="footer__copyright">
+                        <a class="footer__copyright-link" href="https://htmlacademy.ru">
+                            <span>Made by HTML Academy</span>
+                            <svg class="footer__copyright-logo" width="27" height="34">
+                                <use xlink:href="#icon-htmlacademy"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ 'web/libs/dropzone.js' }}"></script>
+    <script src="{{ 'web/js/dropzone-settings.js' }}"></script>
+    <script src="{{ 'web/js/main.js' }}"></script>
+{% endblock %}
