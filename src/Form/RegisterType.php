@@ -95,7 +95,7 @@ class RegisterType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new Image([
-                        'mimeTypes' => ['image/jpeg', 'image/png'],
+                        'mimeTypes' => ['image/jpeg', 'image/png', 'image/jpg'],
                         'maxSize' => 5 * 1024 * 1024
                     ])
                 ],
